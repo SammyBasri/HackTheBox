@@ -1,0 +1,21 @@
+Attach hostnames to an ip
+  - go to etc/hosts and edit 
+    - you will need to run the following on hosts: sudo chmod 777 hosts 
+  - add a line with the following format: <IP> (tab) <Hostname> <Hostname>
+  
+Enumerate a WordPress website
+  - wpscan --url https://brainfuck.htb/ --disable-tls-checks
+  - wpscan --url https://brainfuck.htb/ --disable-tls-checks --enumerate p --enumerate t --enumerate u
+
+SearchSploit 
+  - searchsploit <service name>
+    - To grab specific text file: searchsploit -x file.txt
+    
+To crack an SSH key with John
+  - python sshng2john.py id_rsa > ssh_login
+  - john ssh_login --wordlist=/usr/share/wordlists/rockyou.txt
+    - Then, ssh with the key and the obtained password: ssh -i id_rsa orestis@10.10.10.17
+
+
+  
+
