@@ -17,5 +17,26 @@ To crack an SSH key with John
     - Then, ssh with the key and the obtained password: ssh -i id_rsa orestis@10.10.10.17
 
 
+nmap
+  - Initial Scan: nmap -sC -sV -O -oA initial 10.10.10.13
+  - Run the below as you enumerate your initial findings
+    - Scan all ports: nmap -sC -sV -O -p- -oA full 10.10.10.13
+    - UDP Scan: nmap -sU -O -p- -oA udp 10.10.10.13
+    - UDP 1000 ports scan: nmap -sU udep-1000 10.10.10.13 
+    - Vuln Scan: nmap--script vuln 10.10.10.13
+    
+nslookup
+  - if port 53 (DNS) is open, ask the DNS server what domain name is associated with a certian IP by running the following
+    - nslookup 
+    - server <dns ip>
+    - <ip in question>
+
+Zone Transfer 
+  - host -l <domain name> <DNS IP>
+
+Manual SQL Injection: https://pentestlab.blog/2012/12/24/sql-injection-authentication-bypass-cheat-sheet/
+    
+    
+
   
 
