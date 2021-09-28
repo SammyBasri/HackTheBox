@@ -35,6 +35,27 @@ Zone Transfer
   - host -l <domain name> <DNS IP>
 
 Manual SQL Injection: https://pentestlab.blog/2012/12/24/sql-injection-authentication-bypass-cheat-sheet/
+
+masscan: sudo masscan -e tun0 -p1-65535 --rate=1000 10.10.10.43
+
+gobuster
+
+  Update: sudo apt update && apt upgrade -y
+  Install gobuster: sudo apt-get install gobuster 
+  Run it: gobuster dir -u http://10.10.10.43 -w /usr/share/wordlists/Dirbuster/directory-list-2.3-medium.txt -o gobuster/80results.txt 
+    To run with https: add -k at the end to ignore certificate and adjust http to https. 
+
+Upgrade Shell
+
+  - python -c 'import pty;pty.spawn("/bin/bash")'
+
+To find files/folders owned by a user
+  - find / -user user 2> /dev/null
+
+  
+    
+
+  
     
     
 
