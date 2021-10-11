@@ -16,6 +16,12 @@ To crack an SSH key with John
   - john ssh_login --wordlist=/usr/share/wordlists/rockyou.txt
     - Then, ssh with the key and the obtained password: ssh -i id_rsa orestis@10.10.10.17
 
+Enumerating SMB: https://infinitelogins.com/2020/06/17/enumerating-smb-for-pentesting/#:~:text=protocol%20negotiation%20failed%3A%20NT_STATUS_CONNECTION_DISCONNECTED%20This%20error%20occurs%20because,to%20use%20the%20weaker%20and%20more%20insecure%20protocols.
+	- smbmap -H <IP Address>
+	- sudo smbclient \\\\<ip-addr>\\<share>
+		- NT_STATUS_CONNECTION_DISCONNECTED:
+			- sudo nano /etc/samba/smb.conf
+			- Under Global: client min protocol = LANMAN1
 
 nmap
   - Initial Scan: nmap -sC -sV -O -oA initial 10.10.10.13
@@ -67,6 +73,9 @@ Enum Notes:
   - Tomcat services usually have a login page at 10.10.10.55/manager/html
   - To check what other devices the victim is communicating with: arp -a 
     - Then check a few ports on the machines found: nc -v <machine address> <port>
+  - FTP Anonymous loging: ftp <address>
+  	- anonymous/<blank>
+
 
   
     
