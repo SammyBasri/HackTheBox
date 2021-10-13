@@ -57,6 +57,7 @@ gobuster
   Install gobuster: sudo apt-get install gobuster 
   Run it: gobuster dir -u http://10.10.10.43 -w /usr/share/wordlists/Dirbuster/directory-list-2.3-medium.txt -o gobuster/80results.txt 
     To run with https: add -k at the end to ignore certificate and adjust http to https. 
+  Run it and look for specific extensions: gobuster dir -u http://10.10.10.43 -w /usr/share/wordlists/Dirbuster/directory-list-2.3-medium.txt -x .php,.html,.txt,.sh
 
 Upgrade Shell
 
