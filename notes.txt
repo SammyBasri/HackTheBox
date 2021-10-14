@@ -60,7 +60,7 @@ gobuster
   Run it and look for specific extensions: gobuster dir -u http://10.10.10.43 -w /usr/share/wordlists/Dirbuster/directory-list-2.3-medium.txt -x .php,.html,.txt,.sh
 
 Upgrade Shell
-
+https://github.com/SammyBasri/HackTheBox/blob/main/notes.txt
   - python -c 'import pty;pty.spawn("/bin/bash")'
 
 To find files/folders owned by a user
@@ -83,6 +83,8 @@ Enum Notes:
     - Then check a few ports on the machines found: nc -v <machine address> <port>
   - FTP Anonymous loging: ftp <address>
   	- anonymous/<blank>
+  - To create shell as another user: sudo -u <username> /bin/bash
+
 
 
   
