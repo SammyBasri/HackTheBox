@@ -39,6 +39,7 @@ nslookup
 
 Zone Transfer 
   - host -l <domain name> <DNS IP>
+  - Other method: dig axfr @<DNS IP> <domain name>
   
 Retreiving emails from an email server
 	- nc -nv <IP> 110
