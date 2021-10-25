@@ -2,6 +2,7 @@ Attach hostnames to an ip
   - go to etc/hosts and edit 
     - you will need to run the following on hosts: sudo chmod 777 hosts 
   - add a line with the following format: <IP> (tab) <Hostname> <Hostname>
+  	- Or: sudo echo "10.10.10.79 valentine.htb" | sudo tee -a /etc/hosts   
   
 Enumerate a WordPress website
   - wpscan --url https://brainfuck.htb/ --disable-tls-checks
@@ -58,7 +59,7 @@ gobuster
 
   Update: sudo apt update && apt upgrade -y
   Install gobuster: sudo apt-get install gobuster 
-  Run it: gobuster dir -u http://10.10.10.43 -w /usr/share/wordlists/Dirbuster/directory-list-2.3-medium.txt -o gobuster/80results.txt 
+  Run it: gobuster dir -u http://10.10.10.43 -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -o gobuster/80results.txt 
     To run with https: add -k at the end to ignore certificate and adjust http to https. 
   Run it and look for specific extensions: gobuster dir -u http://10.10.10.43 -w /usr/share/wordlists/Dirbuster/directory-list-2.3-medium.txt -x .php,.html,.txt,.sh
 
