@@ -80,6 +80,10 @@ Getting hashes out of a ntds.dit and ntds.bin
 	- bin is the SYSTEM file 
   - impacket-secretsdump -ntds ntds.dit -system <bin file> LOCAL
 
+Proxy: Connecting to a VNC service over an SSH connection.
+	 - ssh: ssh -L 5901:127.0.0.1:5901 -N -f -l charix 10.10.10.84
+	 	- vncviewer localhost:5901 -passwd secret
+
 Enum Notes:
 
   - Tomcat services usually have a login page at 10.10.10.55/manager/html
@@ -88,6 +92,12 @@ Enum Notes:
   - FTP Anonymous loging: ftp <address>
   	- anonymous/<blank>
   - To create shell as another user: sudo -u <username> /bin/bash
+  - List all process: ps aux
+  - Simple Prive Esc: sudo -l 
+  
+Use scp to download files via ssh
+     - sudo scp root@192.168.100.22:/etc/file .
+    
   
  
  Windows: 
