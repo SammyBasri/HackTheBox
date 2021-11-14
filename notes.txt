@@ -125,6 +125,7 @@ Enum Notes:
   - List all process: ps aux
   - Simple Prive Esc: sudo -l 
   - To list setuid binaries: find / -perm -4000 2>/dev/null
+  - internal.conf can potentially be found at /etc/apache2/sites-enabled
   - List files and folder owned by a user: find / -user jimmy 2>/dev/null
 
 John: 
