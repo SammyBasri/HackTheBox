@@ -34,6 +34,7 @@ nmap
     - UDP 1000 ports scan: nmap -sU udep-1000 10.10.10.13 
     - Vuln Scan: nmap--script vuln 10.10.10.13
     - scan 445 for vul: nmap -Pn -p 445 --script smb-vuln-* 10.10.10.4 > 445.txt  
+    	- https://github.com/1nf1n17yk1ng/MS17-010_CVE-2017-0143
     
 nslookup
   - if port 53 (DNS) is open, ask the DNS server what domain name is associated with a certian IP by running the following
