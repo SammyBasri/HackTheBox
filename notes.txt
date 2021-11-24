@@ -10,6 +10,7 @@ Enumerate a WordPress website
 
 Nikto
 	- nikto -host http://10.10.10.15
+		- If webdav is enabled: davtest -url http://10.10.10.15 -move -cleanup
 
 SearchSploit 
   - searchsploit <service name>
