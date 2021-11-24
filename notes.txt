@@ -8,6 +8,9 @@ Enumerate a WordPress website
   - wpscan --url https://brainfuck.htb/ --disable-tls-checks
   - wpscan --url https://brainfuck.htb/ --disable-tls-checks --enumerate p --enumerate t --enumerate u
 
+Nikto
+	- nikto -host http://10.10.10.15
+
 SearchSploit 
   - searchsploit <service name>
     - To grab specific text file: searchsploit -x file.txt
