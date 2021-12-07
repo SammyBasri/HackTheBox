@@ -199,6 +199,9 @@ Password Protected SSH Private Key:
 	
 	- LDAP
 		- ldapsearch: ldapsearch -h htb.local -p 389 -x -b "dc=htb,dc=local"
+	- enum4linux: 
+		- enum4linux forest.htb > enum4linux.txt
+		- cat enum4linux.txt | grep -i users
 		
 		
 			
