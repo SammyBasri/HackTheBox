@@ -11,6 +11,16 @@ Enumerate a WordPress website
 Nikto
 	- nikto -host http://10.10.10.15
 		- If webdav is enabled: davtest -url http://10.10.10.15 -move -cleanup
+mount
+	- if you see a mountd service, do the following 
+		- check what shares are availble: showmount -e <address of machine>
+		- create a directory to attach it to the share: mkdir /mnt/nfs
+			- $ showmount -e remote.htb
+					Export list for remote.htb:
+					/site_backups (everyone)
+		- Mount the share: mount -t nfs -o vers=3 <address of machine>:<share name or path> /mnt/nfs
+			- $ mount -t nfs -o vers=3 remote.htb:/site_backups /mnt/nfs
+
 
 SearchSploit 
   - searchsploit <service name>
