@@ -6,6 +6,7 @@ Attach hostnames to an ip
   
 Enumerate a WordPress website
   - wpscan --url https://brainfuck.htb/ --disable-tls-checks
+  	- Look for vulnerable or outdated plugins to exploit.
   - wpscan --url https://brainfuck.htb/ --disable-tls-checks --enumerate p --enumerate t --enumerate u
 
 Nikto
