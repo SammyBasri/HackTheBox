@@ -25,8 +25,13 @@ mount
 					/site_backups (everyone)
 		- Mount the share: mount -t nfs -o vers=3 <address of machine>:<share name or path> /mnt/nfs
 			- $ mount -t nfs -o vers=3 remote.htb:/site_backups /mnt/nfs
-
-
+Hydra: 
+	- How to brute force a login page
+		- sudo hydra <Username/List> <Password/List> <IP> <Method> "<Path>:<RequestBody>:<IncorrectVerbiage>"
+			- sudo hydra -l admin -P /usr/share/wordlists/rockyou.txt 10.10.10.43 http-post-form '/department/login.php:username=admin&password=^PASS^:Invalid Password!'
+		- To determine both the method and the request body: Inspect Element > Network
+			- Method will be seen easily as http-post-form
+			- right click and edit & resend then copy the request body. 
 SearchSploit 
   - searchsploit <service name>
     - To grab specific text file: searchsploit -x file.txt
