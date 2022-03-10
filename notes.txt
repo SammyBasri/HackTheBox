@@ -36,6 +36,10 @@ SearchSploit
   - searchsploit <service name>
     - To grab specific text file: searchsploit -x file.txt
     
+Pentesting UDP port 161/UDP: 
+	- Get version and check if the public string is a valid credential: sudo nmap -Pn -sU -p 161 --script snmp-brute -oN snmp_brute -sV 10.10.10.116 > snmp.txt
+		- If you get more info using the above command, use the version (1) and communicty string (public): snmp-check 10.10.10.116 -c public -v 1 > snmp-enum.txt
+
 To crack an SSH key with John
   - python sshng2john.py id_rsa > ssh_login
   - john ssh_login --wordlist=/usr/share/wordlists/rockyou.txt
