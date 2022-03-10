@@ -65,6 +65,7 @@ nmap
   - Initial Scan: nmap -sC -sV -O -oA initial 10.10.10.13
   - Run the below as you enumerate your initial findings
     - Scan all ports: nmap -sC -sV -O -p- -oA full 10.10.10.13
+    	- Faster all port scan: nmap  -p 0-65535 192.168.122.1 -T5
     - UDP Scan: nmap -sU -O -p- -oA udp 10.10.10.13
     - UDP 1000 ports scan: nmap -sU udep-1000 10.10.10.13 
     - Vuln Scan: nmap--script vuln 10.10.10.13
