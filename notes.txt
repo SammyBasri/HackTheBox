@@ -197,6 +197,11 @@ Password Protected SSH Private Key:
   
  
  Windows: 
+ 	- File/Folder enume:
+		- Check access of a file: icacls <filename or dir>
+		- Check ownership of a file: dir /q root.txt
+			- if you own a file but can't access it, you may grant yourself access: icacls root.txt /grant <username>:F
+		- 
  	- tasklist: lists all running tasks.  
  
 	- Port 445: sudo nmap -Pn -p 445 --script smb-vuln-* legacy.htb
