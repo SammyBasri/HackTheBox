@@ -289,6 +289,13 @@ Password Protected SSH Private Key:
 			- invoke-bloodhound -collectionmethod all -domain htb.local -LDAPUser svc-alfresco -LDAPPass s3rvice
 			- Invoke-BloodHound -CollectionMethod All
 		- Get the resulting files on your machine. 
+		- On your local machine: 
+			- sudo apt-get install bloodhound -y
+			- sudo neo4j console 
+			- Traversing on browser http://127.0.0.1:7474/ , we get user prompt. Login using default password : neo4j/neo4j
+			- on cmd: bloodhound
+				- login
+			- drag your zip files and drop them in bloodhound
 			
 	- enum4linux: 
 		- enum4linux forest.htb > enum4linux.txt
