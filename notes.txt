@@ -15,7 +15,12 @@ Shell Shock:
 
 Nikto
 	- nikto -host http://10.10.10.15
-		- If webdav is enabled: davtest -url http://10.10.10.15 -move -cleanup
+		- If webdav is enabled: davtest -url http://10.10.10.15 -move -cleanup		
+Ping TTL time meaning: 
+	- 127: windows 
+	- 64: Linux
+	- 127 > : Possibliy network equipment. 
+	
 mount
 	- if you see a mountd service, do the following 
 		- check what shares are availble: showmount -e <address of machine>
