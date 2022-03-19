@@ -58,6 +58,8 @@ Enumerating SMB: https://infinitelogins.com/2020/06/17/enumerating-smb-for-pente
 		- NT_STATUS_CONNECTION_DISCONNECTED:
 			- sudo nano /etc/samba/smb.conf
 			- Under Global: client min protocol = LANMAN1
+	- List Shares: smbclient -L 10.10.10.134 
+	- Access SMB as a certain user: smbmap -H bastion.htb -u Guest 
 
 Decoding a base64 file: cat myplace.backup | base64 -d > results
 
