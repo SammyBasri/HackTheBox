@@ -3,7 +3,9 @@ Attach hostnames to an ip
     - you will need to run the following on hosts: sudo chmod 777 hosts 
   - add a line with the following format: <IP> (tab) <Hostname> <Hostname>
   	- Or: sudo echo "10.10.10.79 valentine.htb" | sudo tee -a /etc/hosts   
-  
+	
+Search for a specific file on Linux: find / -name "user.txt" 2>/dev/null  
+
 Enumerate a WordPress website
   - wpscan --url https://brainfuck.htb/ --disable-tls-checks
   	- Look for vulnerable or outdated plugins to exploit: wpscan --url http://10.10.10.88/webservices/wp -e ap --plugins-detection aggressive
