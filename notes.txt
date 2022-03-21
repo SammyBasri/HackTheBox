@@ -54,6 +54,11 @@ To crack an SSH key with John
     
 Generate an SSH key: ssh-keygen -f postman  
 
+Find hidden info in an image file: 
+	- Install steghide: steghide (then enter y to install it)
+	- steghide info irked.jpg
+	- steghide extract -sf irked.jpg
+	
 Enumerating SMB: https://infinitelogins.com/2020/06/17/enumerating-smb-for-pentesting/#:~:text=protocol%20negotiation%20failed%3A%20NT_STATUS_CONNECTION_DISCONNECTED%20This%20error%20occurs%20because,to%20use%20the%20weaker%20and%20more%20insecure%20protocols.
 	- smbmap -H <IP Address>
 	- sudo smbclient \\\\<ip-addr>\\<share>
