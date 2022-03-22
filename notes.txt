@@ -6,6 +6,8 @@ Attach hostnames to an ip
 	
 Search for a specific file on Linux: find / -name "user.txt" 2>/dev/null  
 
+Access a website on 127.0.0.1:8443 rather than 10.10.10.184:8443: ssh nadine@10.10.10.184 -L 8443:127.0.0.1:8443 
+
 Enumerate a WordPress website
   - wpscan --url https://brainfuck.htb/ --disable-tls-checks
   	- Look for vulnerable or outdated plugins to exploit: wpscan --url http://10.10.10.88/webservices/wp -e ap --plugins-detection aggressive
