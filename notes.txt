@@ -69,6 +69,8 @@ Enumerating SMB: https://infinitelogins.com/2020/06/17/enumerating-smb-for-pente
 			- Under Global: client min protocol = LANMAN1
 	- List Shares: smbclient -L 10.10.10.134 
 	- Access SMB as a certain user: smbmap -H bastion.htb -u Guest or smbclient //10.10.10.100/Users -U SVC_TGS
+	
+Brute Force SMB: hydra -L usernames.txt -P rockyou.txt 10.10.10.193 smb 	
 
 Decoding a base64 file: cat myplace.backup | base64 -d > results
 
