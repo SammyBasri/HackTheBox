@@ -459,10 +459,13 @@ Password Protected SSH Private Key:
 
 	
 		
+Good Windows PHP Reverse Shell: https://github.com/Dhayalanb/windows-php-reverse-shell
+	- Make sure to adjust IP, PORT and TMP directory. 
+	
 
-		
-		
-			
+Good unpatched Windows 8 Priv Esc Kernal exploit: https://github.com/SecWiki/windows-kernel-exploits/tree/master/CVE-2018-8120
+	- x86.exe whoami
+	- x86.exe shell.exe
 		
 			
 			
