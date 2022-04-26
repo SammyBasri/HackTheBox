@@ -456,6 +456,7 @@ Password Protected SSH Private Key:
 		- Password Location:
 					dir C:\Windows\System32\config\RegBack\SAM
 					dir C:\Windows\System32\config\RegBack\SYSTEM
+		- Look for passwords: reg query HKLM /f pass /t REG_SZ /s
 
 	
 		
