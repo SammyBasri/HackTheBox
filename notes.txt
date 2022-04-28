@@ -21,7 +21,8 @@ Nikto
 	- nikto -host http://10.10.10.15
 		- If webdav is enabled: davtest -url http://10.10.10.15 -move -cleanup	
 	- nikto -host http://192.168.47.56 -port 8089 -nossl
-	
+List Linux Capablities: getcap -r / 2>/dev/null
+	- exploit: https://www.hackingarticles.in/linux-privilege-escalation-using-capabilities/	
 Curl: 
 	- Regular curl: curl <URL>
 	- Specify a request: curl -X POST <URL>
