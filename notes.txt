@@ -275,6 +275,8 @@ Dumping a local Mysql DB: You need credentials
 Use scp to download files via ssh
      - systemctl start ssh.socket 
      - sudo scp root@192.168.100.22:/etc/file .
+     - Upload: scp -p test 296640a3b825115a47b68fc44501c828@192.168.56.125:.
+     	- -p is used to maintain perms.
      
 Password Protected SSH Private Key: 
 	- python ssh2john.py key > out.txt 
