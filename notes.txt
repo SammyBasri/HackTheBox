@@ -3,7 +3,11 @@ Attach hostnames to an ip
     - you will need to run the following on hosts: sudo chmod 777 hosts 
   - add a line with the following format: <IP> (tab) <Hostname> <Hostname>
   	- Or: sudo echo "10.10.10.79 valentine.htb" | sudo tee -a /etc/hosts   
-	
+Exiting a restricted shell: 
+	- :set shell=/bin/bash
+	- :shell
+	- export PATH=/bin:/usr/bin:$PATH
+	- export SHELL=/bin/bash:$SHELL
 Search for a specific file on Linux: find / -name "user.txt" 2>/dev/null  
 
 Access a website on 127.0.0.1:8443 rather than 10.10.10.184:8443: ssh nadine@10.10.10.184 -L 8443:127.0.0.1:8443 
