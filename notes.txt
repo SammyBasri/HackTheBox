@@ -16,7 +16,9 @@ Enumerate a WordPress website
   - wpscan --url https://brainfuck.htb/ --disable-tls-checks
   	- Look for vulnerable or outdated plugins to exploit: wpscan --url http://10.10.10.88/webservices/wp -e ap --plugins-detection aggressive
   - wpscan --url https://brainfuck.htb/ --disable-tls-checks --enumerate p --enumerate t --enumerate u
- 
+Find bash history: 
+	- Go to home dir
+		- find -name ".bash_history" -exec cat {} \;
 Shell Shock: 
 	- When a pentesting a website over port 80 and you find a directory named cgi-bin, then you need to test for shell shock
 		- checking for shell shock: nmap -sV -p 80 -Pn --script http-shellshock --script-args uri=/cgi-bin/user.sh 10.10.10.56
