@@ -124,7 +124,7 @@ Enumerating SMB: https://infinitelogins.com/2020/06/17/enumerating-smb-for-pente
 			- sudo nano /etc/samba/smb.conf
 			- Under Global: client min protocol = LANMAN1
 	- List Shares: smbclient -L 10.10.10.134 
-	- Utilize the smbmap tool to assist with recursively going through each directory for interesting files: smbmap -u null -p null -H <IP> -s Scripting$ -R
+	- Utilize the smbmap tool to assist with recursively going through each directory for interesting files: smbmap -u null -p null -H <IP> -s <share> -R
 
 	- Access SMB as a certain user: smbmap -H bastion.htb -u Guest or smbclient //10.10.10.100/Users -U SVC_TGS
 	
