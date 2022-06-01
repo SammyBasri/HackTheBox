@@ -134,6 +134,9 @@ Enumerating SMB: https://infinitelogins.com/2020/06/17/enumerating-smb-for-pente
 	- Access SMB as a certain user: smbmap -H bastion.htb -u Guest or smbclient //10.10.10.100/Users -U SVC_TGS
 	
 Brute Force SMB: hydra -L usernames.txt -P rockyou.txt 10.10.10.193 smb 
+	- crackmapexec smb 192.168.89.122 -u username -p CrabSharkJellyfish192
+		- does not matter if the username and passowrds are a lits or a or a single item
+
 
 Reset SMB Password: smbpasswd -r 10.10.10.193 -U bhult
 
@@ -408,6 +411,10 @@ Password Protected SSH Private Key:
 		- To get DN "dc=htb,dc=local": ldapsearch -h 10.10.10.161 -x -s base namingcontexts 
 		- You can naming context using nmap: nmap -n -sV --script "ldap* and not brute" 192.168.89.122  
 		- ldapsearch -h htb.local -p 389 -x -b "dc=htb,dc=local"
+		- Get description (you may find helpful info): ldapsearch -x -h 192.168.89.122 -D '' -w '' -b "DC=hutch,DC=offsec" |
+grep description
+		- Get usernames: ldapsearch -x -h 192.168.89.122 -D '' -w '' -b "DC=hutch,DC=offsec" |
+ grep sAMAccountName: 
 		- To query for user info: ldapsearch -h 10.10.10.161 -p 389 -x -b "dc=htb,dc=local" '(objectClass=Person)'
 		
 	- BloodHound: Domain Controller Informaition Extraction
