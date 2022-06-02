@@ -8,7 +8,10 @@ Exiting a restricted shell:
 	- :shell
 	- export PATH=/bin:/usr/bin:$PATH
 	- export SHELL=/bin/bash:$SHELL
+	
 Search for a specific file on Linux: find / -name "user.txt" 2>/dev/null  
+
+Add a Binary to Path: export PATH=$PATH:/home/jose
 
 Access a website on 127.0.0.1:8443 rather than 10.10.10.184:8443: ssh nadine@10.10.10.184 -L 8443:127.0.0.1:8443 
 
