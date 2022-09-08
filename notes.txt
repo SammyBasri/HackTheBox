@@ -504,6 +504,8 @@ grep description
 	
 		
 Good Windows PHP Reverse Shell: https://github.com/Dhayalanb/windows-php-reverse-shell
+	- alt: wget https://raw.githubusercontent.com/ivan-sincek/php-reverse-shell/master/src/reverse/php_reverse_shell.php -O 0xBEN_shell.php
+nano 0xBEN_shell.php
 	- Make sure to adjust IP, PORT and TMP directory. 
 	
 
