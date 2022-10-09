@@ -524,6 +524,7 @@ On Domain Controllers, if you got credentials you may use psexec:
 	- virtual env
 	- pip2 install xlrd=1.2.0
 - cmd /c <command or exe>
+ - "cmd /c C:\\Windows\\temp\\shell.exe
 		
 			
 			
