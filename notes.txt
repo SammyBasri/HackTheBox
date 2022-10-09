@@ -525,6 +525,8 @@ On Domain Controllers, if you got credentials you may use psexec:
 	- pip2 install xlrd=1.2.0
 - cmd /c <command or exe>
  - "cmd /c C:\\Windows\\temp\\shell.exe
+- https://medium.com/r3d-buck3t/attack-insecure-rsync-service-928951af34ed
+	- Replace ssh keys 
 		
 			
 			
