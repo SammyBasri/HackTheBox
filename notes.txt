@@ -523,7 +523,7 @@ On Domain Controllers, if you got credentials you may use psexec:
 - Windows exploit suggester
 	- virtual env
 	- pip2 install xlrd=1.2.0
-
+- cmd /c <command or exe>
 		
 			
 			
