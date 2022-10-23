@@ -527,6 +527,7 @@ On Domain Controllers, if you got credentials you may use psexec:
  - "cmd /c C:\\Windows\\temp\\shell.exe
 - https://medium.com/r3d-buck3t/attack-insecure-rsync-service-928951af34ed
 	- Replace ssh keys 
+- Download entire FTP: wget -r ftp://anonymous@192.168.237.127:30021
 		
 			
 			
