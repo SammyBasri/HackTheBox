@@ -632,7 +632,7 @@ return(0);
 			- env PATH=.:$PATH /usr/bin/keybase-redirector /keybase
 			
 
-			
+		- PHPFusion 9.03.50 is running locally: https://www.exploit-db.com/exploits/49911
 			
 
 
