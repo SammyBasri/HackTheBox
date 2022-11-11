@@ -543,6 +543,7 @@ Foothold:
 			- mysql -h <IP> -u <user> -p <pass>
 			- https://book.hacktricks.xyz/network-services-pentesting/pentesting-mysql
 				- Go down to the windows and linux sections for remote code execution 
+				- Find zip file at the bottom of the page: https://github.com/sqlmapproject/sqlmap/issues/2965
 		- Unified remote 3: https://www.exploit-db.com/exploits/49587
 		- FreeSwitch: https://www.exploit-db.com/exploits/47799
 			- Download the above exploit 
