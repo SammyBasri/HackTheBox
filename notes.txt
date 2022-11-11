@@ -613,6 +613,7 @@ Foothold:
 			- https://www.exploit-db.com/exploits/40290
 			- http:/<IP>/wp-content/plugins/mail-
 masta/inc/campaign/count_of_send.php?pl=/etc/passwd
+		- Wordpress Plugin TheCartPress: https://www.exploit-db.com/exploits/50378
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Privelege Escalation: 
